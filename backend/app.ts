@@ -16,7 +16,10 @@ const allowedOrigins: string[] = [
 ];
 
 app.use(compression());
-app.use(helmet());
+app.use(helmet({
+   crossOriginOpenerPolicy: false,  
+    crossOriginEmbedderPolicy: false
+}));
 
 app.use(
   cors({
@@ -27,14 +30,14 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const staticPath = path.join(__dirname, "../frontend/dist");
+const staticPath = path.join(__dirname,process.env.NODE_ENV === "development"? "../frontend/dist":"../../frontend/dist");
 app.use(express.static(staticPath));
 
 app.use("/api/v1", apiRoutes);
 app.get("/test", (req, res)=>{
   res.json({success:true})
 })
-app.get("/*", (req, res) => {
+app.get("*", (req, res) => {
   res.sendFile(path.join(staticPath, "index.html"));
 });
 

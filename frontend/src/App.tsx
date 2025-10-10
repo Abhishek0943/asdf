@@ -12,9 +12,10 @@ const App = () => {
                     <Route path="/*" element={<>
                       <main>
                         <h1>hii</h1>
-                        {/* <Routes> */}
-                          {/* <Route path="/profile/*" element={<Profile />} /> */}
-                        {/* </Routes> */}
+                        <Routes>
+                          <Route path="/" element={<Home />} />
+                          <Route path="/about" element={<About />} />
+                        </Routes>
                       </main>
                     </>} />
                   </Routes>
@@ -26,3 +27,18 @@ const App = () => {
   )
 }
 export default App
+
+const Home= ()=>{
+  return (
+    <>
+    <h1>home</h1>
+    </>
+  )
+}
+const About= ()=>{
+  return (
+    <>
+    <h1>About</h1>
+    </>
+  )
+}
