@@ -1,0 +1,10 @@
+# Basic deps
+sudo apt-get update -y
+sudo apt-get install -y curl git
+
+# Install k3s with Traefik Ingress enabled (default)
+curl -sfL https://get.k3s.io | sh -
+
+# Verify
+sudo kubectl get nodes
+sudo kubectl get pods -A

@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ES6", // ES6 is a common target for Node.js
+    "module": "commonjs", // Node uses commonjs module system
+    "outDir": "./dist", // Compiled JS files go into the dist folder
+    "rootDir": "./", // Your TypeScript files will be in src
+    "strict": true, // Enable strict type checking
+    "esModuleInterop": true, // Allows default imports for non-ES modules
+    "skipLibCheck": true, // Skip type checking of declaration files for faster compilation
+    "forceConsistentCasingInFileNames": true,
+    "allowJs": true,
+    "typeRoots": [
+      "./types",
+      "./node_modules/@types"
+    ]
+  },
+  "include": [
+    "./**/*.ts", "src", "types"
+, "routes/recharge.routes.ts"  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
