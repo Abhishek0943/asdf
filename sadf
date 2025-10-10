@@ -8,3 +8,7 @@ curl -sfL https://get.k3s.io | sh -
 # Verify
 sudo kubectl get nodes
 sudo kubectl get pods -A
+git clone https://github.com/Abhishek0943/asdf.git ~/app
+
+curl -fsSL https://get.docker.com | sh
+sudo usermod -aG docker $USER
