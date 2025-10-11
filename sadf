@@ -12,3 +12,8 @@ git clone https://github.com/Abhishek0943/asdf.git ~/app
 
 curl -fsSL https://get.docker.com | sh
 sudo usermod -aG docker $USER
+
+
+sudo docker build -t app:local .
+sudo docker rm -f app || true
+sudo docker run -d --name app --restart unless-stopped -p 80:3000 app:local
