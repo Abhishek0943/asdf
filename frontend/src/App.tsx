@@ -21,7 +21,7 @@ export default function App() {
     const fetchCredentials = async () => {
       setLoading(true);
       try {
-        const res = await fetch(API_URL +`/api/v1/all-credentials`);
+        const res = await fetch(API_URL?API_URL +`/api/v1/all-credentials`:"api/v1/all-credentials");
         if (!res.ok) throw new Error("Failed to fetch credentials");
         const data= await res.json();
         setUsers(data.credentials);
@@ -76,8 +76,8 @@ const handleSubmit = async () => {
   try {
     const apiUrl =
       mode === "issue"
-        ? API_URL+"/api/v1/issuance"
-        :API_URL+ "/api/v1/verification";
+        ?API_URL?  API_URL+"/api/v1/issuance":"api/v1/issuance"
+        :API_URL? API_URL+ "/api/v1/verification":"api/v1/verification";
 
     const response = await fetch(apiUrl, {
       method: "POST",
