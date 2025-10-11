@@ -22,6 +22,7 @@ WORKDIR /app/backend
 RUN npm install --omit=dev
 
 ENV NODE_ENV=production
+ENV DB_URI_PRO=mongodb+srv://abhishke:dvAFNVlxGaBin0dy@cluster0.bp6mr6f.mongodb.net/assiment
 ENV PORT=3000
 
 EXPOSE 3000

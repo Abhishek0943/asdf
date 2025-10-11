@@ -63,3 +63,24 @@ export const verifyCredential = catchAsyncErrors(async (req: Request, res: Respo
     });
 
 });
+
+export const getAllCredentials = catchAsyncErrors(async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const creds = await Credential.find();
+
+        if (!creds || creds.length === 0) {
+            return res.status(200).json({
+                message: "No credentials found",
+                credentials: [],
+            });
+        }
+
+        return res.status(200).json({
+            message: "All credentials fetched successfully",
+            count: creds.length,
+            credentials: creds,
+        });
+    } catch (error) {
+        return next(new ErrorHandler("Failed to fetch credentials", 500));
+    }
+});
