@@ -1,6 +1,6 @@
 
 import './index.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
 
 const App = () => {
   return (
@@ -31,14 +31,15 @@ export default App
 const Home= ()=>{
   return (
     <>
-    <h1>home</h1>
+    <Link to={"/about"}>home</Link>
     </>
   )
 }
 const About= ()=>{
   return (
     <>
-    <h1>About</h1>
+    <Link to={"/home"}>about</Link>
+
     </>
   )
 }
